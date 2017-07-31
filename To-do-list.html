@@ -6,46 +6,55 @@
 	<script>
 		
 
+
 	function newItem(){
-		var addbutton= document.getElementById("add");
+		var li = document.createElement("li");
+  var inputValue = document.getElementById("new").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("You must write something!");
+  } else {
+    document.getElementById("mainul").appendChild(li);
+  }
+
+		/*var addnewitem = document.getElementById("mainul");
+		var list =document.createElement("li");
+		var input = document.getElementById("new").value;
+		if (input===''){
+			alert("Empty");
+		}
+		else {
+			//alert("hello");
+			//console.log("Add...");
+			addnewitem.appendChild(list);
+		}*/
+
+
+		/*var addbutton= document.getElementById("add");
+
 		var list = document.createElement("li");
 		var input = document.getElementById("new");
+		var t = document.createTextNode(input.value);
+			li.appendChild(t);
 		if (input.value==""){
 			alert("Empty to-do alert!!!")
 		}
 		else{
-			li.appendChild(input.value);
-			document.
+			document.getElementById("mainul").appendChild(li);
+		}*/
 
-		}
 		
 	}
 
-	function checked(){
-		alert("heee");
-		var tick = ;
+	function chec(){
+		//var tick = ;
 		if(document.getElementById("check").checked =true){
-			alert("truee");
+			//document.getElementById("li").strike();
 		}
 
 	}
-	/*function isAddEmpty(){
-		var field = document.getElementById('new');
-		if (field.value ===''){
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
-
-	var checkEmpty = isAddEmpty();
-	if (checkEmpty === true){
-		alert("Can't add an empty To-do");
-	}
-	else {
-		list = new List()
-	}*/
+	
 
 </script>
 
@@ -61,8 +70,8 @@
 	</form>
 </div>
 <div id="divlist">
-	<ul id="ul" style="list-style: none;">
-		<li><input type="checkbox" name="list" id="check" onchange ="checked()"> Visit the dentist</li>
+	<ul id="mainul" style="list-style: none;">
+		<li><input type="checkbox" name="list" id="check" onclick ="chec()"> Visit the dentist</li>
 		<li>Go to the Tailor's</li>
 		<li>Call Derek</li>
 	</ul>
