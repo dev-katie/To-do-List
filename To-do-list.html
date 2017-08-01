@@ -2,23 +2,31 @@
 <html>
 <head>
 	<title>To-Do List</title>
+	<style type="text/css">
+		li .checkname {
+  			background: #888;
+  			color: #fff;
+  			text-decoration: line-through;
+  		}
+  		h2 {text-align: center;}
+	</style>
 
 	<script>
-		var checkbox = document.createElement("input");
+		
+	function newItem(){
+    	var checkbox = document.createElement("input");
 			checkbox.type ="checkbox";
 			checkbox.id = "checkid";
 			checkbox.name = "checkname";
 			checkbox.value = "checkvalue";
-
+			checkbox.onclick = chec;
 		var closebutton = document.createElement("button");
 		var closetxt = document.createTextNode("close");
 			closebutton.type = "button";
 			closebutton.id = "closeid";
 			closebutton.className  = "closename";
 			closebutton.appendChild(closetxt);
-
-	function newItem(){
-    
+			closebutton.onclick = closed;
 	
 		var addnewitem = document.getElementById("mainul");
 		var list =document.createElement("li");
@@ -29,7 +37,6 @@
 		list.appendChild(text);
 		
 		list.appendChild(closebutton);
-
 		if (input===''){
 			alert("Empty to-do alert!!!");
 		}
@@ -39,29 +46,24 @@
 		}
 		
 	}
-
-			var close = document.getElementById("closeid");
-			var i;
-			for (i = 0; i < close.length; i++) {
-		 		close[i].onclick = function() {
-		 			alert("hhhhh");
-		    		var div = this.parentElement;
-		   			 div.style.display = "none";
-		  }
-		}
-
-	function chec(){
-		
-		this.checked=!this.checked;
-		var tick = document.getElementById("check");
-		if(tick.checked =true){
-			alert("hi");
-			//document.getElementById("li").strike();
-		}
-
+	function closed(){
+			
+		    		var removeitem = this.parentElement;
+		    		removeitem.parentNode.removeChild(removeitem);
 	}
 	
-
+	function chec(){
+		var tick = this;
+		var parent = tick.parentElement;
+		if (tick.checked == true){
+			parent.style.textDecoration = "line-through";
+		}
+		else {
+			parent.style.textDecoration ="";
+		}
+		
+	}
+	
 </script>
 
 </head>
@@ -77,7 +79,6 @@
 </div>
 <div id="divlist">
 	<ul id="mainul" style="list-style: none;">
-		<li><input type="checkbox" name="checkname" id="checkid" value="checkvalue" onchange ="chec()"> Visit the dentist</li>
 		
 	</ul>
 </div>
@@ -86,5 +87,3 @@
 
 </body>
 </html>
-
-
