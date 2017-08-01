@@ -4,52 +4,58 @@
 	<title>To-Do List</title>
 
 	<script>
-		
+		var checkbox = document.createElement("input");
+			checkbox.type ="checkbox";
+			checkbox.id = "checkid";
+			checkbox.name = "checkname";
+			checkbox.value = "checkvalue";
 
+		var closebutton = document.createElement("button");
+		var closetxt = document.createTextNode("close");
+			closebutton.type = "button";
+			closebutton.id = "closeid";
+			closebutton.className  = "closename";
+			closebutton.appendChild(closetxt);
 
 	function newItem(){
-		var li = document.createElement("li");
-  var inputValue = document.getElementById("new").value;
-  var t = document.createTextNode(inputValue);
-  li.appendChild(t);
-  if (inputValue === '') {
-    alert("You must write something!");
-  } else {
-    document.getElementById("mainul").appendChild(li);
-  }
-
-		/*var addnewitem = document.getElementById("mainul");
+    
+	
+		var addnewitem = document.getElementById("mainul");
 		var list =document.createElement("li");
 		var input = document.getElementById("new").value;
+		var text = document.createTextNode(input);
+		
+		list.appendChild(checkbox);
+		list.appendChild(text);
+		
+		list.appendChild(closebutton);
+
 		if (input===''){
-			alert("Empty");
+			alert("Empty to-do alert!!!");
 		}
 		else {
-			//alert("hello");
-			//console.log("Add...");
 			addnewitem.appendChild(list);
-		}*/
-
-
-		/*var addbutton= document.getElementById("add");
-
-		var list = document.createElement("li");
-		var input = document.getElementById("new");
-		var t = document.createTextNode(input.value);
-			li.appendChild(t);
-		if (input.value==""){
-			alert("Empty to-do alert!!!")
+			document.getElementById("new").value = "";
 		}
-		else{
-			document.getElementById("mainul").appendChild(li);
-		}*/
-
 		
 	}
 
+			var close = document.getElementById("closeid");
+			var i;
+			for (i = 0; i < close.length; i++) {
+		 		close[i].onclick = function() {
+		 			alert("hhhhh");
+		    		var div = this.parentElement;
+		   			 div.style.display = "none";
+		  }
+		}
+
 	function chec(){
-		//var tick = ;
-		if(document.getElementById("check").checked =true){
+		
+		this.checked=!this.checked;
+		var tick = document.getElementById("check");
+		if(tick.checked =true){
+			alert("hi");
 			//document.getElementById("li").strike();
 		}
 
@@ -65,15 +71,14 @@
 	<form>
 	<p>New Item:  </p>
 	<!--<input type='checkbox' name = ''>-->
-	<input id='new' type='text' name='new'>
-	<button id="add" onclick="newItem()">Add</button>
+	<input id='new' type='text' name='new' placeholder="Add Task...">
+	<button id="add" type="button" onclick="newItem()">Add</button>
 	</form>
 </div>
 <div id="divlist">
 	<ul id="mainul" style="list-style: none;">
-		<li><input type="checkbox" name="list" id="check" onclick ="chec()"> Visit the dentist</li>
-		<li>Go to the Tailor's</li>
-		<li>Call Derek</li>
+		<li><input type="checkbox" name="checkname" id="checkid" value="checkvalue" onchange ="chec()"> Visit the dentist</li>
+		
 	</ul>
 </div>
 <h5></h5>
