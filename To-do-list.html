@@ -3,9 +3,17 @@
 <head>
 	<title>To-Do List</title>
 	<style type="text/css">
+	body {
+		background-color: #e6e6ff;
+	}
 	#container {
+		padding-top: 20px;
+		background-color: #ffffff;
 		width: 70%;
-		padding-left: 15%;
+		margin-left: 10%;
+		padding-right: 5%;
+		padding-left: 5%;
+		height: 100%;
 	}
 	.closename {
 		width:40px;
@@ -14,8 +22,36 @@
 		height: 50px;
 		font-size: 20px;
 	}
+	#divlist {
+		height: 70%;
+		background-color: #b3b3ff;
+	}
+	ul {
+		list-style: none;
+	}
+	#footer {
+		text-align: center;
 		
-  		h2 {text-align: center;}
+		width: 100%;
+	}
+		
+  	h2 {
+  		text-align: center;
+  		font-family: Monotype Corsiva;
+  		font-size: 30px;
+  		background-color: #ccccff;
+  		padding: 10px;
+
+  	}
+	
+	#new {
+		width: 40%;
+		height: 30px;
+	}
+	#add {
+		height: 35px;
+
+	}  	
 	</style>
 
 	<script>
@@ -79,20 +115,22 @@
 <div id="divnew">
 	<h2>To-do List</h2>
 	<form>
-	<p>New Item:  </p>
-	<!--<input type='checkbox' name = ''>-->
+	<h4>New Item:  </h4>
 	<input id='new' type='text' name='new' placeholder="Add Task...">
 	<button id="add" type="button" onclick="newItem()">Add</button>
 	</form>
 </div>
 <div id="divlist">
 <h2>Tasks</h2>
-<hr />
-	<ul id="mainul" style="list-style: none;">
+
+	<ul id="mainul">
 		
 	</ul>
 </div>
-</div>
 
+</div>
+<div id="footer">
+	<p>copyright &copy; 2017 TeeKay Solutions</p>
+</div>
 </body>
 </html>
