@@ -3,11 +3,18 @@
 <head>
 	<title>To-Do List</title>
 	<style type="text/css">
-		li .checkname {
-  			background: #888;
-  			color: #fff;
-  			text-decoration: line-through;
-  		}
+	#container {
+		width: 70%;
+		padding-left: 15%;
+	}
+	.closename {
+		width:40px;
+	}
+	li {
+		height: 50px;
+		font-size: 20px;
+	}
+		
   		h2 {text-align: center;}
 	</style>
 
@@ -21,7 +28,7 @@
 			checkbox.value = "checkvalue";
 			checkbox.onclick = chec;
 		var closebutton = document.createElement("button");
-		var closetxt = document.createTextNode("close");
+		var closetxt = document.createTextNode("Exit");
 			closebutton.type = "button";
 			closebutton.id = "closeid";
 			closebutton.className  = "closename";
@@ -68,6 +75,7 @@
 
 </head>
 <body>
+<div id=container>
 <div id="divnew">
 	<h2>To-do List</h2>
 	<form>
@@ -78,12 +86,13 @@
 	</form>
 </div>
 <div id="divlist">
+<h2>Tasks</h2>
+<hr />
 	<ul id="mainul" style="list-style: none;">
 		
 	</ul>
 </div>
-<h5></h5>
-
+</div>
 
 </body>
 </html>
